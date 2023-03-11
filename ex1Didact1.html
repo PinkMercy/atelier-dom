@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Didactitiel 1:les animaux</title>
+    <meta charset="UTF-8">
+    <style>
+        img {
+            width: 100px;
+            height: 100px
+        }
+    </style>
+</head>
+
+<body>
+    <h2> Passez la souris sur l'animal
+        pour voir son nom </h2>
+    <table>
+        <tr>
+            <td><img src='img/chien.gif' alt="chien"></td>
+            <td><img src='img/elephant.gif' alt="elephant"></td>
+            <td><img src='img/grenouille.gif' alt="grenouille"></td>
+            <td><img src='img/lion.gif' alt="lion"></td>
+        </tr>
+        <tr>
+            <td><img src='img/mouton.gif' alt="mouton"></td>
+            <td><img src='img/ours.gif' alt="ours"></td>
+            <td><img src='img/rat.gif' alt="rat"></td>
+            <td><img src='img/renard.gif' alt="renard"></td>
+        </tr>
+    </table>
+    <script>
+        var bouttons = document.getElementsByTagName("img")
+        bouttons[0].addEventListener('mouseover',animal);
+        bouttons[1].addEventListener('mouseover',animal);
+        bouttons[2].addEventListener('mouseover',animal);
+        bouttons[3].addEventListener('mouseover',animal);
+        bouttons[4].addEventListener('mouseover',animal);
+        bouttons[5].addEventListener('mouseover',animal);
+        bouttons[6].addEventListener('mouseover',animal);
+        bouttons[7].addEventListener('mouseover',animal);
+
+        function animal() {
+   
+            
+            test = this.src.lastIndexOf("/")
+           
+            test2=this.src.substring(0,test+1)
+          
+            lesrc = this.src.substring(test + 1)
+            var p =test2+lesrc.substring(0, lesrc.length - 4) + "L.gif"
+            
+
+           this.src= p;
+          
+        }
+
+        for(i=0;i<8;i++)
+        {
+        bouttons[i].addEventListener('mouseout',animal1);
+    }
+        
+
+        function animal1() {
+   
+            
+   test = this.src.lastIndexOf("L")
+   console.log(test) 
+   test2=this.src.substring(0,test)
+   
+   lesrc = this.src.substring(test +2 )
+   console.log(lesrc) 
+   var p =test2+lesrc.substring(0, lesrc.length - 4) + ".gif"
+   console.log(p)
+
+  this.src= p;
+ 
+}
+    </script>
+</body>
+
+</html>
