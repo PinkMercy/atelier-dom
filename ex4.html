@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nature d'un triangle</title>
+    <meta charset="utf-8">
+    <style>
+        .bouton {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 5px;
+            box-shadow: 4px 4px 4px lightblue
+        }
+
+        em {
+            color: blue;
+            font-weight: bold
+        }
+
+        li:hover {
+            background-color: lightblue;
+            color: blue;
+            box-shadow: 4px 4px 4px blue
+        }
+
+        div {
+            width: 50%;
+            margin: auto
+        }
+
+        ul {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="bouton" id="b1">Commencer le test</span>
+        <p>On joue avec <em>..................</em></p>
+        <hr>
+        <img src="imgTriangle/first.jpg" id='Limage' style="float:right">
+        <h4>Comment est ce triangle? </h4>
+        <ul>
+            <li>Quelconque</li>
+            <li>Equilateral</li>
+            <li>Isocele</li>
+            <li>Rectangle</li>
+        </ul>
+        <br>
+        <hr>
+        <p></p>
+        <hr>
+        <span class="bouton" id="b2"> Un autre triangle?</span>
+    </div>
+    <script>
+        //var  javascript2 = ["Quelconque","Equilatéral","Isocèle","Rectangle"]
+        function rand() {
+            var javascript = ['imgTriangle/Equilateral.png', 'imgTriangle/Isocele.png', 'imgTriangle/Quelconque.png',
+                'imgTriangle/Rectangle.png'
+            ];
+            ani = Math.floor(Math.random() * 3)
+            imagee.removeEventListener('click', srcc);
+            imagee.removeEventListener('click', rand);
+
+            return javascript[ani]
+        }
+
+        var imagee = document.getElementById("b1")
+        imagee.addEventListener('click', srcc);
+        imagee.addEventListener('click', rep);
+
+        function rep() {
+            var inputElement = document.createElement('input');
+            inputElement.type = 'text';
+            document.getElementsByTagName("em")[0].replaceWith(inputElement)
+            imagee.removeEventListener('click', rep);
+
+
+        }
+
+        function verif() {
+
+            var javascript3 = document.getElementsByTagName('input')
+            console.log(javascript3[0].value)
+
+            if (javascript3[0].value != '') {
+                // p = javascript3[0].value
+                var p = this.textContent
+                console.log(p)
+                var imge = document.getElementById("Limage");
+                test = imge.src.lastIndexOf("/")
+                test7 = imge.src.substring(0, test + 1)
+                test5 = p + ".png"
+                aaa = test7 + test5
+                console.log(aaa)
+                console.log(imge.src)
+                if (imge.src == aaa) {
+                    this.style.color = 'lightblue';
+                    this.style.backgroundColor = 'blue';
+                    var javascript4 = document.getElementsByTagName('p')[1]
+                    javascript4.textContent = "bravo"
+
+
+
+
+                } else {
+                    var javascript4 = document.getElementsByTagName('p')[1]
+                    javascript4.textContent = "incorrect"
+                }
+                // console.log("sdfdsffvffffff")
+
+            }
+        }
+
+        function srcc() {
+            var imge = document.getElementById("Limage");
+            imge.src = rand()
+            console.log(imge.src)
+            imge.addEventListener('click', rand);
+
+
+
+            var javascript2 = document.querySelectorAll('ul li')
+            for (i = 0; i < javascript2.length; i++) {
+                javascript2[i].addEventListener('click', verif);
+            }
+            test = document.getElementById("b2")
+            test.addEventListener('click', srccinput);
+        }
+
+
+        function srccinput() {
+            var javascript3 = document.getElementsByTagName('input')
+            console.log(javascript3[0].value)
+
+            if (javascript3[0].value != '') {
+                var imge = document.getElementById("Limage");
+                imge.src = rand()
+                console.log(imge.src)
+                imge.addEventListener('click', rand);
+            }
+            var javascript2 = document.querySelectorAll('ul li')
+            for (i = 0; i < javascript2.length; i++) {
+                javascript2[i].style.color = 'black';
+                javascript2[i].style.backgroundColor = '';
+                javascript2[i].style.opacity = '';
+
+            }
+        }
+    </script>
+</body>
+
+</html>

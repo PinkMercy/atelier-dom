@@ -31,14 +31,9 @@
     </table>
     <script>
         var bouttons = document.getElementsByTagName("img")
-        bouttons[0].addEventListener('mouseover',animal);
-        bouttons[1].addEventListener('mouseover',animal);
-        bouttons[2].addEventListener('mouseover',animal);
-        bouttons[3].addEventListener('mouseover',animal);
-        bouttons[4].addEventListener('mouseover',animal);
-        bouttons[5].addEventListener('mouseover',animal);
-        bouttons[6].addEventListener('mouseover',animal);
-        bouttons[7].addEventListener('mouseover',animal);
+        for(i=0;i<8;i++)
+        {
+        bouttons[i].addEventListener('mouseover',animal); }
 
         function animal() {
    
@@ -52,7 +47,7 @@
             
 
            this.src= p;
-          
+          //console.log(p)
         }
 
         for(i=0;i<8;i++)

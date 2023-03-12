@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Didactitiel 2:les animaux </title>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border: 1px solid;
+            color: green;
+            background-color: yellow;
+            font-size: x-large;
+            font-weight: bold;
+            width: 50%;
+        }
+
+        td {
+            border: 1px solid
+        }
+
+        span {
+            font-size: x-large;
+            font-weight: bold;
+        }
+
+        img {
+            width: 100px;
+            height: 100px
+        }
+
+        .clIm {
+            background-Color: green;
+            color: yellow
+        }
+
+        .clImInv {
+            background-Color: yellow;
+            color: green
+        }
+    </style>
+</head>
+
+<body>
+
+    <p></p>
+    <img src="img/ours.gif" alt="ours" id="I1">
+    <table>
+        <tr>
+            <td>ours</td>
+            <td>elephant</td>
+            <td>grenouille</td>
+            <td>lion</td>
+        </tr>
+        <tr>
+            <td>mouton</td>
+            <td>chien</td>
+            <td>rat</td>
+            <td>renard</td>
+        </tr>
+    </table>
+    <script>
+        /*  var bouttons = document.querySelectorAll('table td')
+        for (i = 0; i < 8; i++) {
+            bouttons[i].addEventListener('click',srcc);
+        }*/
+        var bouttons = document.getElementById("I1")
+
+        window.addEventListener('load', srcc);
+
+
+
+        function rand() {
+            var javascript = ['img/ours.gif', 'img/elephant.gif', 'img/grenouille.gif', 'img/lion.gif','img/mouton.gif', 'img/chien.gif', 'img/rat.gif', 'img/renard.gif'];
+            let test = Math.floor(Math.random() * 8);
+            return javascript[test];
+        }
+        //console.log(rand())
+
+        function srcc() {
+            var imgElement = document.getElementById("I1");
+    
+            // var p = rand()
+            // console.log(p)
+            imgElement.src = rand()
+            console.log(imgElement.src)
+            //return  imgElement.src ;
+            test = imgElement.src.lastIndexOf("/")
+            console.log(test)
+            test7 = imgElement.src.substring(0, test - 3)
+            console.log(test7)
+            /* lesrc = imgElement.src.substring(test + 1)
+
+             pp = "img/" + lesrc
+             fintest = test7 + pp
+             console.log(fintest)*/
+            var bouttons = document.querySelectorAll('table td')
+            for (i = 0; i < 8; i++) {
+                bouttons[i].addEventListener('click', animal);
+            }
+
+            function animal() {
+
+
+                var p = this.textContent
+                console.log(p)
+                //"http://127.0.0.1:5501/img/"+
+                test5 = "img/" + p + ".gif"
+                aaa = test7 + test5
+                console.log(aaa)
+                if (imgElement.src == aaa) {
+                    this.style.color = 'yellow';
+                    this.style.backgroundColor = 'green';
+                    alert("bravo")
+                    location.reload()
+    
+
+                }else alert("incorrect ")
+            }
+        }
+       
+    </script>
+</body>
+
+</html>

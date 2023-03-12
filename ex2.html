@@ -4,6 +4,16 @@
 <head>
     <title> Didactitiel 2:les animaux </title>
     <meta charset="UTF-8">
+    <script>
+        {
+            test = new Date()
+            document.write("<strong>date: ", test.getDate(), "/", test.getMonth() + 1, "/", test.getFullYear(),
+                "</strong> <br>")
+            document.write("<strong>heure :", test.getHours(), ":", test.getMinutes(), ":", test.getSeconds(),
+                "</strong>")
+
+        }
+    </script>
     <style>
         table {
             border: 1px solid;
@@ -57,6 +67,24 @@
             <td>renard</td>
         </tr>
     </table>
+
+
+    <script>
+        var bouttons = document.querySelectorAll('table td')
+        for (i = 0; i < 8; i++) {
+            bouttons[i].addEventListener('click', animal);
+        }
+        function animal() {
+        var p = this.textContent
+        test="img/"+p+".gif" 
+        if(test == 'img/ours.gif')
+        {
+            this.style.color = 'yellow'; 
+            this.style.backgroundColor = 'green';
+        }
+        console.log(test)
+        }     
+    </script>
 </body>
 
 </html>
